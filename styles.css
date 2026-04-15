@@ -67,7 +67,7 @@ body{
     font-size: 20px;
   }
   .nav-item{
-    margin-top: 0px;
+    margin-top: 12px;
     margin-right: 15px;
   }
   .nav-item:first-child{
