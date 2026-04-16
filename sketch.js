@@ -46,7 +46,7 @@ for (let i = 0; i < 5; i++) {
   }
 }
 function draw() {
-  background(4, 4,4 );
+  background(4, 4,);
 let hover = false;
 for (let i = 0; i < items.length; i++) {
 let a = items[i];
