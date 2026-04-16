@@ -35,7 +35,6 @@ function setup() {
   textAlign(CENTER, CENTER);
   textSize(50);
   noStroke();
-  frameRate(60);
   pixelDensity(Math.min(pixelDensity(), 2));
 
   let s = shuffle(palette.slice());
@@ -49,7 +48,7 @@ function draw() {
   mx += (mouseX - mx) * 0.15;
   my += (mouseY - my) * 0.15;
 
-  background(4, 4, 4);
+  background(4, 4, );
 
   let hover = false;
   let words = states[state];
