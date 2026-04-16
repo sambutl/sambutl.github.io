@@ -5,6 +5,22 @@
   font-weight: 390;
   font-style: normal;
 }
+
+.interMedium {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 50px;
+  letter-spacing: 1.2px;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: left;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
 body{
     margin: 0px;
     background-color: rgb(4,4,4);
