@@ -20,8 +20,8 @@ let myFont;
 let myFontThin;
 let mx = 0, my = 0;
 let prevHover = false;
-const MIN = 175, MIN_SQ = MIN * MIN;
-const HOVER = 37;
+const MIN = 180, MIN_SQ = MIN * MIN;
+const HOVER = 45;
 const INV_DAMP = 0.95, FORCE = 0.2;
 
 function preload() {
