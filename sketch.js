@@ -74,7 +74,7 @@ function draw() {
       textFont(myFontThin);
       textSize(18);
       fill(255);
-      text("click", a.x, a.y);
+      text("click a word", a.x, a.y);
       textFont(myFont);
       textSize(50);
     } else {
