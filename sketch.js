@@ -112,5 +112,4 @@ function handleInteraction() {
 }
 
 function mousePressed()  { handleInteraction(); }
-function touchStarted()  { handleInteraction(); return false; }
 function windowResized() { resizeCanvas(windowWidth, windowHeight); }
