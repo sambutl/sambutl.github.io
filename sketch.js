@@ -1,12 +1,20 @@
 let items = [];
 let palette = [
   [255,0,0],[0,0,255],[255,255,0],[128,0,128],[139,69,19],
-  [255,105,180],[0,255,0],[255,165,0],[0,255,200]
+  [255,105,180],[0,255,0],[255,165,0],[0,255,200], [224, 59, 40],   // Vermillion
+[245, 61, 155],  // Hot pink
+[130, 184, 217], // Sky blue
+[58, 122, 58],   // Grass green
+[212, 168, 50],  // Mustard gold
+[76, 191, 90],   // Neon green
+[232, 200, 74],  // Pale yellow
+[217, 68, 32],   // Deep orange
+[168, 204, 222] // Powder blue
 ];
 let states = [
   ["hi","hello","hey","yo","hiya"],
   ["hi","i'm","following","you","around"],
-  ["you","can't","escape","i'm","sorry"],
+  ["you","escape","can't","i'm","sorry"],
   ["i","believe","in","surprising","design"],
   ["that","looks","below","the","surface"],
   ["using","ideas","to","inform","conception"],
@@ -26,7 +34,7 @@ const INV_DAMP = 0.95, FORCE = 0.2;
 
 function preload() {
   myFont = loadFont('/assets/Inter_18pt-Medium.ttf');
-  myFontThin = loadFont('/assets/Inter_18pt-Thin.ttf');
+  myFontThin = loadFont('/assets/Inter_18pt-Regular.ttf');
 }
 
 function setup() {
@@ -42,7 +50,7 @@ function setup() {
   for (let i = 0; i < 5; i++)
     items.push({ x: random(width), y: random(height), vx: 0, vy: 0, c: color(...s[i]), hint: false });
 
-  // 6th hint item — physics-enabled, just like the others
+
   items.push({ x: random(width), y: random(height), vx: 0, vy: 0, c: color(255), hint: true });
 
   mx = width * 0.5; my = height * 0.5;
@@ -57,7 +65,6 @@ function draw() {
   let words = states[state];
   let n = items.length;
 
-  // ── Physics + render ────────────────────────────────────────────────────
   for (let i = 0; i < n; i++) {
     let a = items[i];
     let dx = mx - a.x, dy = my - a.y;
@@ -73,7 +80,7 @@ function draw() {
     if (a.hint) {
       textFont(myFontThin);
       textSize(18);
-      fill(255);
+      fill(100,100,100);
       text("click a word", a.x, a.y);
       textFont(myFont);
       textSize(50);
@@ -85,7 +92,7 @@ function draw() {
 
   if (hover !== prevHover) { cursor(hover ? HAND : ARROW); prevHover = hover; }
 
-  // ── Separation ───────────────────────────────────────────────────────────
+ 
   for (let i = 0; i < n - 1; i++) {
     for (let j = i + 1; j < n; j++) {
       let a = items[i], b = items[j];
@@ -104,7 +111,7 @@ function handleInteraction() {
   for (let a of items) {
     if (dist(mouseX, mouseY, a.x, a.y) < HOVER) {
       state = (state + 1) % states.length;
-      // Remove hint item on first click
+      // Removes hint item on first click
       items = items.filter(item => !item.hint);
       break;
     }

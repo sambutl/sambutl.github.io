@@ -6,6 +6,15 @@
   font-style: normal;
 }
 
+.interThin {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  color: white;
+  font-weight: 190;
+  font-style: normal;
+  font-size: 15px;
+}
+
 .interMedium {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -24,6 +33,12 @@
 body{
     margin: 0px;
     background-color: rgb(4,4,4);
+}
+
+.bottomBody{
+position: fixed;
+bottom: 15px;
+margin-left: 45px;
 }
 
 .sketch-container{
