@@ -126,6 +126,21 @@ margin-left: 15px;
   font-size: 11px;
 }
 
+.interMedium {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  font-size: 25px;
+  letter-spacing: 1.2px;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: left;
+  margin-left: 15px;
+  margin-right: 40px;
+}
+
 }
 
 /*.defineGrid{
