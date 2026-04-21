@@ -110,6 +110,21 @@ margin-left: 45px;
     margin-left: -25px;
     z-index: 200;
    }
+
+  .bottomBody{
+position: fixed;
+bottom: 12px;
+margin-left: 15px;
+} 
+
+.interThin {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  color: white;
+  font-weight: 190;
+  font-style: normal;
+  font-size: 10px;
+}
 }
 
 /*.defineGrid{
