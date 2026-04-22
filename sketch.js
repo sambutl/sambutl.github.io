@@ -80,7 +80,7 @@ function draw() {
     if (a.hint) {
       textFont(myFontThin);
       textSize(18);
-      fill(100,100,100);
+      fill(255,255,255);
       text("click me", a.x, a.y);
       textFont(myFont);
       textSize(50);
