@@ -14,14 +14,14 @@ let palette = [
 let states = [
   ["hi","hello","hey","yo","hiya"],
   ["hi","i'm","following","you","around"],
-  ["you","escape","can't","i'm","sorry"],
-  ["i","believe","in","surprising","design"],
-  ["that","looks","below","the","surface"],
+  ["sometimes","i","get","jumbled","up"],
+  ["believe","surprising","in","i","design"],
+  ["research","ideas","informs","considered","purposeful"],
+  ["designing with","empathy","systems","motion","taste"],
   ["using","ideas","to","inform","conception"],
-  ["creating","experiences","to","bring","joy"],
-  ["using","colour","motion","form","interactivity"],
-  ["with","coding","motion","3d","direction"],
-  ["people","with","extraordinary","working","awesome"],
+  ["communicating with","colour","motion","form","interactivity"],
+  ["&","coding","motion","3d","craft"],
+  ["people","working with","extraordinary","talented","awesome"],
 ];
 let state = 0;
 let myFont;
@@ -81,7 +81,7 @@ function draw() {
       textFont(myFontThin);
       textSize(18);
       fill(100,100,100);
-      text("click a word", a.x, a.y);
+      text("click me", a.x, a.y);
       textFont(myFont);
       textSize(50);
     } else {

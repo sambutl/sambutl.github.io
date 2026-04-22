@@ -6,6 +6,18 @@
   font-style: normal;
 }
 
+.inter-light-about {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 390;
+  font-style: normal;
+  font-size: 30px;
+}
+
+.inter-light-about a{
+  text-decoration: none;
+}
+
 .interThin {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -15,20 +27,43 @@
   font-size: 13px;
 }
 
+.inter-thin-about {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  color: white;
+  font-weight: 200;
+  font-style: normal;
+  
+}
+
 .interMedium {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 450;
+  font-weight: 490;
   font-style: normal;
   font-size: 50px;
   letter-spacing: 1.2px;
   color: white;
-  display: flex;
+}
+
+.orange{
+color: rgb(254,62,15);
+}
+.grey{
+color: rgb(0, 245, 255);
+}
+.red{
+color: rgb(214, 13, 13);
+}
+.white{
+  color: white;
+}
+
+/*display: flex;
   justify-content: flex-start;
   align-items: left;
   margin-left: 40px;
-  margin-right: 40px;
-}
+  margin-right: 40px;*/
 
 body{
     margin: 0px;
@@ -37,9 +72,42 @@ body{
 
 .bottomBody{
 position: absolute;
-    bottom: 7px;
-    width: 100%;
-    text-align: center;
+bottom: 7px;
+width: 100%;
+text-align: center;
+}
+
+body,
+.container{
+  min-height: 90vh;
+  
+  gap: 40px;
+}
+.container{
+  display: fixed;
+  flex-direction: column;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
+  font-size: 2.5vw;
+}
+header{
+flex: 1;
+}
+section{
+flex: 1;
+display: flex;
+gap: 40px;
+margin-top: 60px;
+}
+.col-left{
+flex: 1;
+text-decoration: none;
+font-size: 1.7vw;
+}
+.col-right{
+flex: 1;
+font-size: 1.7vw;
 }
 
 .sketch-container{
@@ -71,7 +139,7 @@ position: absolute;
 
 .nav-item a {
   text-decoration: none;
-  font-size: 30px;
+  font-size: 1.7vw;
   color: rgb(255, 255, 255);
   transition:all 300ms ease-in;
   z-index: 200;
@@ -88,6 +156,8 @@ position: absolute;
   margin-left: 0px;
   z-index: 200;
 }
+
+
 
 @media (max-width: 600px){
   .nav-list{
@@ -126,6 +196,23 @@ margin-left: 15px;
   font-style: normal;
   font-size: 10px;
 }
+.inter-light-about {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 26px;
+}
+
+.inter-thin-about {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  color: white;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 10px;
+}
 
 .interMedium {
   font-family: "Inter", sans-serif;
@@ -140,6 +227,38 @@ margin-left: 15px;
   align-items: left;
   margin-left: 15px;
   margin-right: 40px;
+}
+
+body,
+.container{
+  min-height: 90vh;
+  gap: 40px;
+}
+.container{
+  display: fixed;
+  flex-direction: column;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+header{
+flex: 1;
+}
+section{
+flex: 1;
+display: flex;
+flex-direction: column;
+gap: 20px;
+margin-top: 50px;
+}
+.col-left{
+flex: 1;
+text-decoration: none;
+}
+.col-right{
+flex: 1;
+margin-top: 30px;
+
 }
 
 }
