@@ -12,7 +12,7 @@
   color: white;
   font-weight: 190;
   font-style: normal;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .interMedium {
@@ -36,9 +36,10 @@ body{
 }
 
 .bottomBody{
-position: fixed;
-bottom: 15px;
-margin-left: 45px;
+position: absolute;
+    bottom: 7px;
+    width: 100%;
+    text-align: center;
 }
 
 .sketch-container{
