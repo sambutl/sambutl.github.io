@@ -112,7 +112,6 @@ body{
   flex-direction: column;
   margin-left: 40px;
   margin-right: 40px;
-  margin-top: 20px;
   font-size: 2.5vw;
 }
 
@@ -136,7 +135,7 @@ body{
 
 header{
 flex: 1;
-margin-top: 60px;
+margin-top: 35px;
 }
 section{
 flex: 1;
@@ -266,6 +265,7 @@ font-size: 1.2vw;
 
 header{
 flex: 1;
+margin-top: 20px;
 }
 section{
 flex: 1;
