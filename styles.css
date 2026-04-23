@@ -33,7 +33,7 @@
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   color: white;
-  font-weight: 200;
+  font-weight: 390;
   font-style: normal;
 }
 
@@ -78,9 +78,10 @@ body{
 
 .bottomBody{
 position: absolute;
-bottom: 7px;
-width: 100%;
-text-align: center;
+bottom: 20px;
+width: 90vw;
+text-align: left;
+margin-left: 40px;
 }
 
 .sketch-container{
@@ -129,16 +130,22 @@ margin-top: 60px;
 section{
 flex: 1;
 display: flex;
-gap: 40px;
-margin-top: 60px;
+gap: 150px;
+margin-top: 100px;
 }
 .col-left{
-flex: 1;
+flex: 0.5;
 text-decoration: none;
 font-size: 1.2vw;
 }
+
+.col-mid{
+  flex:2;
+  text-decoration: none;
+  font-size: 1.2vw;
+}
 .col-right{
-flex: 1;
+flex: 0.5;
 font-size: 1.2vw;
 }
 
@@ -204,7 +211,7 @@ font-size: 1.2vw;
 
   .bottomBody{
 position: fixed;
-bottom: 11px;
+bottom: 20px;
 margin-left: 15px;
 } 
 
@@ -228,7 +235,7 @@ margin-left: 15px;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   color: white;
-  font-weight: 200;
+  font-weight: 390;
   font-style: normal;
   font-size: 13px;
   line-height: 10px;
@@ -257,9 +264,9 @@ section{
 flex: 1;
 display: flex;
 flex-direction: column;
-gap: 20px;
+gap: 10px;
 margin-top: 50px;
-margin-bottom: 50px;
+margin-bottom: 120px;
 }
 .col-left{
 flex: 1;
