@@ -81,7 +81,7 @@ function draw() {
       textFont(myFontThin);
       textSize(18);
       fill(255,255,255);
-      text("click me", a.x, a.y);
+     // text("click me", a.x, a.y);
       textFont(myFont);
       textSize(50);
     } else {
@@ -116,7 +116,7 @@ function handleInteraction() {
       break;
     }
   }
-}
+}//
 
 function mousePressed()  { handleInteraction(); }
 function windowResized() { resizeCanvas(windowWidth, windowHeight); }

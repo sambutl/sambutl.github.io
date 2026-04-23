@@ -73,15 +73,15 @@ body{
 
 @keyframes fadeBackground{
   from {background-color: rgb(4,4,4);}
-  to {background-color: rgb(217,68,32);}
+  to {background-color: rgb(193, 71, 40);}
 }
 
 .bottomBody{
-position: absolute;
-bottom: 20px;
-width: 90vw;
-text-align: left;
-margin-left: 40px;
+  display: fixed;
+  flex-direction: column;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 1vw;
 }
 
 .sketch-container{
@@ -123,6 +123,7 @@ margin-left: 40px;
 	}
 }
 
+
 header{
 flex: 1;
 margin-top: 60px;
@@ -132,6 +133,7 @@ flex: 1;
 display: flex;
 gap: 150px;
 margin-top: 100px;
+margin-bottom: 80px;
 }
 .col-left{
 flex: 0.5;
@@ -209,11 +211,6 @@ font-size: 1.2vw;
     z-index: 200;
    }
 
-  .bottomBody{
-position: fixed;
-bottom: 20px;
-margin-left: 15px;
-} 
 
 .interThin {
   font-family: "Inter", sans-serif;
@@ -266,7 +263,6 @@ display: flex;
 flex-direction: column;
 gap: 10px;
 margin-top: 50px;
-margin-bottom: 120px;
 }
 .col-left{
 flex: 1;
@@ -276,6 +272,20 @@ text-decoration: none;
 flex: 1;
 margin-top: 30px;
 
+}
+.col-mid{
+  flex:1;
+  text-decoration: none;
+}
+
+.bottomBody{
+display: fixed;
+flex-direction: column;
+margin-left: 15px;
+font-size: 3vw;
+line-height: 20px;
+margin-bottom: 30px;
+margin-top: 40px;
 }
 
 }
