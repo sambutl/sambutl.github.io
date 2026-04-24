@@ -93,6 +93,9 @@ body{
   width: 8vw;
   flex-shrink: 0;
 }
+.work-year-bottom {
+  width: 100vw;
+}
 
 .work-name {
   width: 15vw;
