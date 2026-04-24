@@ -7,6 +7,16 @@
   font-size: 1.7vw;
 }
 
+.inter-about {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 390;
+  font-style: normal;
+  font-size: 1.7vw;
+  line-height: 2.4vw;
+}
+
+
 .inter-light-about {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -47,6 +57,49 @@
   color: white;
 }
 
+.about-list {
+  margin: 0;
+  margin-top: 30px;
+  padding: 0 40px;
+  list-style: none;
+}
+
+.about-row {
+  display: flex;
+  align-items: baseline;
+  padding: 5px 0;
+  transition: color 300ms ease-in;
+  color: rgb(255, 255, 255);
+}
+
+
+.about-row a {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 50px;
+}
+
+.about-intro {
+  width: 30vw;
+  flex-shrink: 0;
+}
+
+.about-contact {
+  flex-shrink: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  width: 25vw;
+  background-color: rgba(255, 0, 255, 0);
+}
+
+.about-right {
+  width: fit-content;
+  text-overflow: ellipsis;
+  background-color: rgba(255, 0, 0, 0);
+  
+}
 .orange{
 color: rgb(255, 255, 255);
 }
@@ -221,6 +274,42 @@ font-size: 1.2vw;
    }
 
 
+.about-list {
+  list-style: none;
+  font-size: 23px;
+  line-height: 6vw;
+
+  padding: 0%;
+  z-index: 500;
+}
+
+.about-row {
+  display: flex;
+  flex-direction: column;
+  margin-right:10px;
+  margin-left: 15px;
+  gap: 35px;
+  color: #fff;
+  transition: color 300ms ease-in;
+  box-sizing: border-box;
+}
+
+.about-row a {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+
+.about-contact {
+  background-color: rgba(255, 0, 255, 0);
+}
+
+.about-right {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .interThin {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -228,13 +317,6 @@ font-size: 1.2vw;
   font-weight: 190;
   font-style: normal;
   font-size: 10px;
-}
-.inter-light-about {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 450;
-  font-style: normal;
-  font-size: 17px;
 }
 
 .inter-thin-about {
