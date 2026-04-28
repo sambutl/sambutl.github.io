@@ -129,12 +129,16 @@ body{
   to {background-color: rgb(23, 135, 40);}
 }
 
-.bottomBody{
-  display: fixed;
-  flex-direction: column;
-  margin-left: 40px;
-  margin-right: 40px;
-  font-size: 1vw;
+.footer{
+  position: fixed;
+  margin-left: 30px;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+  color: white;
+  text-align: left;
+  font-size: 15px;
+  line-height: 30px;
 }
 
 .sketch-container{
@@ -261,26 +265,37 @@ font-size: 1.2vw;
 
  .nav-item a{
     font-size: 18px;
-    z-index: 200;
+    z-index: 100;
   }
   .nav-item{
     margin-top: 15px;
     margin-right: 15px;
-    z-index: 200;
+    z-index: 150;
   }
   .nav-item:first-child{
     margin-left: -25px;
-    z-index: 200;
+    z-index: 175;
    }
+
+   .footer{
+  position: fixed;
+  margin-left: 15px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: left;
+  font-size: 12px;
+  line-height: 30px;
+}
 
 
 .about-list {
   list-style: none;
-  font-size: 23px;
-  line-height: 6vw;
+  font-size: 18px;
+  line-height: 30px;
 
   padding: 0%;
-  z-index: 500;
 }
 
 .about-row {
@@ -288,6 +303,7 @@ font-size: 1.2vw;
   flex-direction: column;
   margin-right:10px;
   margin-left: 15px;
+  margin-top: -20px;
   gap: 35px;
   color: #fff;
   transition: color 300ms ease-in;
@@ -304,10 +320,12 @@ font-size: 1.2vw;
 
 .about-contact {
   background-color: rgba(255, 0, 255, 0);
+  z-index: 200;
 }
 
 .about-right {
   background-color: rgba(0, 0, 0, 0);
+   z-index: 250;
 }
 
 .interThin {
