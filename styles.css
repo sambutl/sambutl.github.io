@@ -1,3 +1,7 @@
+a{
+  text-decoration: none;
+  color: white;
+}
 
 .interLight {
   font-family: "Inter", sans-serif;
@@ -23,12 +27,14 @@
   font-weight: 400;
   font-style: normal;
   font-size: 1.7vw; 
+  
 }
 
 .inter-light-about a{
   text-decoration: none;
   line-height: 30px;
 }
+
 
 .interThin {
   font-family: "Inter", sans-serif;
@@ -73,7 +79,7 @@
 }
 
 
-.about-row a {
+.about-row p {
   text-decoration: none;
   color: inherit;
   margin-right: 50px;
@@ -92,6 +98,7 @@
   min-width: 0;
   width: 25vw;
   background-color: rgba(255, 0, 255, 0);
+  
 }
 
 .about-right {
@@ -303,14 +310,14 @@ font-size: 1.2vw;
   flex-direction: column;
   margin-right:10px;
   margin-left: 15px;
-  margin-top: -20px;
-  gap: 35px;
+  margin-top: -40px;
+  gap: 0px;
   color: #fff;
   transition: color 300ms ease-in;
   box-sizing: border-box;
 }
 
-.about-row a {
+.about-row p {
   display: block;
   width: 100%;
   box-sizing: border-box;
