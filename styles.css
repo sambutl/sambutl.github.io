@@ -294,15 +294,7 @@ font-size: 1.2vw;
    }
 
    .footer{
-  position: fixed;
-  margin-left: 15px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  text-align: left;
-  font-size: 12px;
-  line-height: 30px;
+display: none;
 }
 
 
