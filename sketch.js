@@ -111,7 +111,7 @@ function handleInteraction() {
   for (let a of items) {
     if (dist(mouseX, mouseY, a.x, a.y) < HOVER) {
       state = (state + 1) % states.length;
-      // Removes hint item on first click
+
       items = items.filter(item => !item.hint);
       break;
     }
