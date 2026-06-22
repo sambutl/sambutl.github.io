@@ -7,7 +7,7 @@
     
     <title>Sam Butler</title>
     
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/drawstyles.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,28 @@
         </ul>
     </nav> 
 
- <div id="sketch-container" class="sketch-container" alt="A processing sketch saying hi"></div>
+<div class="toolLayout">
+
+    <div id="sketch-container"></div>
+
+    <div id="ui">
+        <div class="ui-component">
+        <label for="slider">Size</label>
+        <input type="range" id="slider" value="100" min="10" max="200">
+        </div>
+       
+        <button id="button" onclick="randomColour()">New Colour</button>
+      
+        <button id="brushButton" onclick="randomBrush()">New Brush</button>
+       
+       
+        <button onclick="changeRatio()">Aspect Ratio</button>
+
+        <button id="exportButton" onclick="exportPNG()">Export</button>
+         
+    </div>
+
+</div>
 </body>
 
 </html>

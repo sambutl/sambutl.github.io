@@ -1,116 +1,171 @@
-let items = [];
+let slider;
+let button;
+let brushButton;
+let exportButton;
+let item;
+
+
 let palette = [
   [255,0,0],[0,0,255],[255,255,0],[128,0,128],[139,69,19],
-  [255,105,180],[0,255,0],[255,165,0],[0,255,200], [224, 59, 40],   // Vermillion
-[245, 61, 155],  // Hot pink
-[130, 184, 217], // Sky blue
-[58, 122, 58],   // Grass green
-[212, 168, 50],  // Mustard gold
-[76, 191, 90],   // Neon green
-[232, 200, 74],  // Pale yellow
-[217, 68, 32],   // Deep orange
-[168, 204, 222] // Powder blue
+  [255,105,180],[0,255,0],[255,165,0],[0,255,200],
+  [224,59,40],[245,61,155],[130,184,217],[58,122,58],
+  [212,168,50],[76,191,90],[232,200,74],[217,68,32],[168,204,222]
 ];
-let states = [
-  ["unleash","inner","matisse","picasso","hockney"],
-  ["extremely","long","brush"],
-  ["a","b","c","d","e"],
-  ["o","o","o","o","o"],
-  ["m","m","m","m","m"],
+
+let words = [
+  "brush",
+  "BOLD",
+  "light",
+  "brush, BOLD, light"
 ];
-let state = 0;
+
+let ratios = [
+  "full",
+  "ratio-4-5",
+  "ratio-9-16"
+];
+let currentRatio = 0;
+
+let currentWord = 0;
+
 let myFont;
-let myFontThin;
 let mx = 0, my = 0;
-let prevHover = false;
-const MIN = 180, MIN_SQ = MIN * MIN;
-const HOVER = 45;
-const INV_DAMP = 0.95, FORCE = 0.2;
+
+const MIN = 180;
+const MIN_SQ = MIN * MIN;
+const INV_DAMP = 0.95;
+const FORCE = 0.3;
 
 function preload() {
   myFont = loadFont('/assets/Inter_18pt-Medium.ttf');
-  myFontThin = loadFont('/assets/Inter_18pt-Regular.ttf');
 }
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight);
-  canvas.parent('sketch-container');
+  slider = document.getElementById("slider");
+  button = document.getElementById("button");
+  brushButton = document.getElementById("brushButton");
+  exportButton = document.getElementById("exportButton");
+
+    let container = document.getElementById("sketch-container");
+
+  let canvas = createCanvas(
+    container.offsetWidth,
+    container.offsetHeight
+  );
+
+  canvas.parent("sketch-container");
+
   textFont(myFont);
   textAlign(CENTER, CENTER);
-  textSize(50);
   noStroke();
-  pixelDensity(Math.min(pixelDensity(), 2));
-  background(4,4,4);
+
+  background(255);
 
   let s = shuffle(palette.slice());
-  for (let i = 0; i < 5; i++)
-    items.push({ x: random(width), y: random(height), vx: 0, vy: 0, c: color(...s[i]), hint: false });
 
 
-  items.push({ x: random(width), y: random(height), vx: 0, vy: 0, c: color(255), hint: true });
+item = {
+  x: random(width),
+  y: random(height),
+  vx: 0,
+  vy: 0,
+  c: color(...s[0])
+};
 
-  mx = width * 0.5; my = height * 0.5;
+  mx = width * 0.5;
+  my = height * 0.5;
+}
+
+function randomColour() {
+  let c = random(palette);
+  item.c = color(...c);
+}
+
+function randomBrush() {
+currentWord = floor(random(words.length));
+ let c = random(palette);
+  item.c = color(...c);
 }
 
 function draw() {
+
   mx += (mouseX - mx) * 0.15;
   my += (mouseY - my) * 0.15;
 
-  let hover = false;
-  let words = states[state];
-  let n = items.length;
+  let word = words[currentWord];
 
-  for (let i = 0; i < n; i++) {
-    let a = items[i];
-    let dx = mx - a.x, dy = my - a.y;
-    let inv = FORCE * (dx*dx + dy*dy + 0.01) ** -0.5;
-    a.vx = (a.vx + dx * inv) * INV_DAMP;
-    a.vy = (a.vy + dy * inv) * INV_DAMP;
-    a.x += a.vx;
-    a.y += a.vy;
+  textSize(Number(slider.value));
 
-    if (!hover && Math.abs(mouseX - a.x) < HOVER && Math.abs(mouseY - a.y) < HOVER)
-      hover = true;
+let dx = mx - item.x;
+let dy = my - item.y;
 
-    if (a.hint) {
-      textFont(myFontThin);
-      textSize(18);
-      fill(100,100,100);
-      textFont(myFont);
-      textSize(50);
-    } else {
-      fill(a.c);
-      text(words[i], a.x, a.y);
-    }
+let inv = FORCE / sqrt(dx * dx + dy * dy + 0.01);
+
+item.vx = (item.vx + dx * inv) * INV_DAMP;
+item.vy = (item.vy + dy * inv) * INV_DAMP;
+
+item.x += item.vx;
+item.y += item.vy;
+
+fill(item.c);
+text(words[currentWord], item.x, item.y);
+}
+
+function windowResized() {
+  let container = document.getElementById("sketch-container");
+
+  resizeCanvas(
+    container.offsetWidth,
+    container.offsetHeight
+  );
+}
+
+function changeRatio() {
+
+  let sketch = document.getElementById("sketch-container");
+
+  sketch.classList.remove(
+    "ratio-4-5",
+    "ratio-9-16"
+  );
+
+  currentRatio++;
+
+  if (currentRatio >= ratios.length) {
+    currentRatio = 0;
   }
 
-  if (hover !== prevHover) { cursor(hover ? HAND : ARROW); prevHover = hover; }
+  if (ratios[currentRatio] !== "full") {
+    sketch.classList.add(ratios[currentRatio]);
+  }
 
+
+  setTimeout(() => {
+    resizeCanvas(
+      sketch.offsetWidth,
+      sketch.offsetHeight
+    );
+  }, 350);
+}
+
+function exportPNG(){
+saveCanvas("expression", "png");
+}
+
+function touchStarted() {
  
-  for (let i = 0; i < n - 1; i++) {
-    for (let j = i + 1; j < n; j++) {
-      let a = items[i], b = items[j];
-      let dx = b.x - a.x, dy = b.y - a.y;
-      let dSq = dx*dx + dy*dy;
-      if (dSq < MIN_SQ) {
-        let f = (MIN * (dSq ** -0.5) - 1) * 0.5;
-        a.x -= dx*f; a.y -= dy*f;
-        b.x += dx*f; b.y += dy*f;
-      }
-    }
-  }
+  mousePressed();
+  return false; 
 }
 
-function handleInteraction() {
-  for (let a of items) {
-    if (dist(mouseX, mouseY, a.x, a.y) < HOVER) {
-      state = (state + 1) % states.length;
-      // Removes hint item on first click
-      items = items.filter(item => !item.hint);
-      break;
-    }
-  }
+
+function touchMoved() {
+  mouseDragged();
+  return false;
 }
 
-function mousePressed()  { handleInteraction(); }
-function windowResized() { resizeCanvas(windowWidth, windowHeight); }
+
+function touchEnded() {
+  mouseReleased();
+  return false;
+}
