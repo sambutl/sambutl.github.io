@@ -131,7 +131,7 @@ body{
 
 @keyframes fadeBackground{
   from {background-color: rgb(4,4,4);}
-  to {background-color: rgb(23, 135, 40);}
+  to {background-color: rgb(4, 4, 4);}
 }
 
 .footer{
