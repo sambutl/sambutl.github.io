@@ -146,6 +146,8 @@ body{
   line-height: 30px;
 }
 
+
+
 .sketch-container{
   position: absolute;
   padding: 0;
@@ -223,11 +225,17 @@ font-size: 1.2vw;
 }
 
 .nav-list{
-  background: rgba(255, 23, 23, 0);
+  background: rgba(4, 4, 4, 0.194);
   margin: 0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  border-bottom: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: white;
+  padding-bottom: 30px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 
 }
 

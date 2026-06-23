@@ -1,16 +1,8 @@
 let slider;
-let button;
-let brushButton;
-let exportButton;
+let aspectMode = "fullscreen";
+
 let item;
-
-
-let palette = [
-  [255,0,0],[0,0,255],[255,255,0],[128,0,128],[139,69,19],
-  [255,105,180],[0,255,0],[255,165,0],[0,255,200],
-  [224,59,40],[245,61,155],[130,184,217],[58,122,58],
-  [212,168,50],[76,191,90],[232,200,74],[217,68,32],[168,204,222]
-];
+let currentWord = 0;
 
 let words = [
   "brush",
@@ -19,153 +11,148 @@ let words = [
   "brush, BOLD, light"
 ];
 
-let ratios = [
-  "full",
-  "ratio-4-5",
-  "ratio-9-16"
+let palette = [
+  [255,0,0],[0,0,255],[255,255,0],[128,0,128],[139,69,19],
+  [255,105,180],[0,255,0],[255,165,0],[0,255,200],
+  [224,59,40],[245,61,155],[130,184,217],[58,122,58],
+  [212,168,50],[76,191,90],[232,200,74],[217,68,32],[168,204,222]
 ];
-let currentRatio = 0;
 
-let currentWord = 0;
+let mx;
+let my;
 
 let myFont;
-let mx = 0, my = 0;
 
-const MIN = 180;
-const MIN_SQ = MIN * MIN;
 const INV_DAMP = 0.95;
 const FORCE = 0.3;
+
 
 function preload() {
   myFont = loadFont('/assets/Inter_18pt-Medium.ttf');
 }
 
+
 function setup() {
+
   slider = document.getElementById("slider");
-  button = document.getElementById("button");
-  brushButton = document.getElementById("brushButton");
-  exportButton = document.getElementById("exportButton");
 
-    let container = document.getElementById("sketch-container");
-
-  let canvas = createCanvas(
-    container.offsetWidth,
-    container.offsetHeight
-  );
-
+  let canvas = createCanvas(100,100);
   canvas.parent("sketch-container");
 
+  resizeSketch();
+
   textFont(myFont);
-  textAlign(CENTER, CENTER);
+  textAlign(CENTER,CENTER);
   noStroke();
 
   background(255);
 
-  let s = shuffle(palette.slice());
+  item = {
+    x: random(width),
+    y: random(height),
+    vx: 0,
+    vy: 0,
+    c: color(...random(palette))
+  };
 
-
-item = {
-  x: random(width),
-  y: random(height),
-  vx: 0,
-  vy: 0,
-  c: color(...s[0])
-};
-
-  mx = width * 0.5;
-  my = height * 0.5;
+  mx = width / 2;
+  my = height / 2;
 }
 
-function randomColour() {
-  let c = random(palette);
-  item.c = color(...c);
-}
-
-function randomBrush() {
-currentWord = floor(random(words.length));
- let c = random(palette);
-  item.c = color(...c);
-}
 
 function draw() {
 
-  mx += (mouseX - mx) * 0.15;
-  my += (mouseY - my) * 0.15;
+  if (
+    mouseX >= 0 &&
+    mouseX <= width &&
+    mouseY >= 0 &&
+    mouseY <= height
+  ) {
+    mx += (mouseX - mx) * 0.15;
+    my += (mouseY - my) * 0.15;
+  }
 
-  let word = words[currentWord];
 
-  textSize(Number(slider.value));
+  let dx = mx - item.x;
+  let dy = my - item.y;
 
-let dx = mx - item.x;
-let dy = my - item.y;
+  let inv = FORCE / sqrt(dx * dx + dy * dy + 0.01);
 
-let inv = FORCE / sqrt(dx * dx + dy * dy + 0.01);
+  item.vx = (item.vx + dx * inv) * INV_DAMP;
+  item.vy = (item.vy + dy * inv) * INV_DAMP;
 
-item.vx = (item.vx + dx * inv) * INV_DAMP;
-item.vy = (item.vy + dy * inv) * INV_DAMP;
+  item.x += item.vx;
+  item.y += item.vy;
 
-item.x += item.vx;
-item.y += item.vy;
 
-fill(item.c);
-text(words[currentWord], item.x, item.y);
+  fill(item.c);
+textSize(Number(slider.value));
+
+  text(
+    words[currentWord],
+    item.x,
+    item.y
+  );
 }
 
-function windowResized() {
+
+function resizeSketch(){
+
   let container = document.getElementById("sketch-container");
 
-  resizeCanvas(
-    container.offsetWidth,
-    container.offsetHeight
-  );
-}
+  let w = container.clientWidth;
+  let h = container.clientHeight;
 
-function changeRatio() {
 
-  let sketch = document.getElementById("sketch-container");
+  if (aspectMode === "portrait") {
 
-  sketch.classList.remove(
-    "ratio-4-5",
-    "ratio-9-16"
-  );
+    w = h * 4 / 5;
 
-  currentRatio++;
-
-  if (currentRatio >= ratios.length) {
-    currentRatio = 0;
-  }
-
-  if (ratios[currentRatio] !== "full") {
-    sketch.classList.add(ratios[currentRatio]);
+    if (w > container.clientWidth) {
+      w = container.clientWidth;
+      h = w * 5 / 4;
+    }
   }
 
 
-  setTimeout(() => {
-    resizeCanvas(
-      sketch.offsetWidth,
-      sketch.offsetHeight
-    );
-  }, 350);
+  resizeCanvas(w,h);
+  background(255);
 }
+
+
+
+function windowResized(){
+  resizeSketch();
+}
+
+
+
+function toggleAspect(){
+
+  if (aspectMode === "fullscreen") {
+    aspectMode = "portrait";
+  } else {
+    aspectMode = "fullscreen";
+  }
+
+  resizeSketch();
+}
+
+
+
+function randomColour(){
+  item.c = color(...random(palette));
+}
+
+
+
+function randomBrush(){
+  currentWord = floor(random(words.length));
+  item.c = color(...random(palette));
+}
+
+
 
 function exportPNG(){
-saveCanvas("expression", "png");
-}
-
-function touchStarted() {
- 
-  mousePressed();
-  return false; 
-}
-
-
-function touchMoved() {
-  mouseDragged();
-  return false;
-}
-
-
-function touchEnded() {
-  mouseReleased();
-  return false;
+  saveCanvas("expression","png");
 }

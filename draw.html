@@ -1,69 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Sam Butler</title>
-    
-    <link rel="stylesheet" href="/drawstyles.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.min.js"></script>
-    <script src="sketchdraw.js"></script>
-    <style>
-        body {
-            overflow: hidden; 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam Butler</title>
+<link rel="stylesheet" href="/drawstyles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.min.js"></script>
+<script src="sketchdraw.js"></script>
 </head>
-
 <body>
-    <nav>
-        <ul class="nav-list interLight">
-            <li class="nav-item">
-                <a href="./"> Sam Butler</a>
-            </li>
-             <li class="nav-item">
-                <a href="./draw"> Draw</a>
-            </li>     
-            <li class="nav-item">
-                <a href="./work"> Work</a>
-            </li>  
-            <li class="nav-item">
-                <a href="./about"> About</a>
-            </li>     
-        </ul>
-    </nav> 
+
+<nav>
+  <ul class="nav-list interLight">
+    <li class="nav-item"><a href="./">Sam Butler</a></li>
+    <li class="nav-item"><a href="./draw">Draw</a></li>
+    <li class="nav-item"><a href="./work">Work</a></li>
+    <li class="nav-item"><a href="./about">About</a></li>
+  </ul>
+</nav>
 
 <div class="toolLayout">
+  <div id="sketch-container"></div>
+</div>
 
-    <div id="sketch-container"></div>
+<div id="ui" class="bottom-ui">
 
-    <div id="ui">
-        <div class="ui-component">
-        <label for="slider">Size</label>
-        <input type="range" id="slider" value="18" min="10" max="200">
-        </div>
-       
-        <button id="button" onclick="randomColour()">New Colour</button>
-      
-        <button id="brushButton" onclick="randomBrush()">New Brush</button>
-       
-       
-        <button onclick="changeRatio()">Aspect Ratio</button>
+  <div class="ui-component">
+    <div class="slider-box">
+  <label for="slider">Size</label>
+  <input type="range" id="slider" value="50" min="10" max="200">
+</div>
+  </div>
 
-        <button id="exportButton" onclick="exportPNG()">Export</button>
-         
-    </div>
+  <button class="ui-button" onclick="randomColour()">New Colour</button>
+  <button class="ui-button" onclick="randomBrush()">New Brush</button>
+  <button class="ui-button" onclick="exportPNG()">Export</button>
+  <button class="ui-button" onclick="toggleAspect()">Aspect Ratio</button>
 
 </div>
+
 </body>
-
 </html>
-
-
-
